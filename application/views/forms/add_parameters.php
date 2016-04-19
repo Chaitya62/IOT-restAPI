@@ -40,7 +40,7 @@
 $(document).ready(function(){
   var form =  $('legend');
   $('#add').click(function(){
-    form.appendChild(input1);
+    form.append(input1);
   });
 });
 </script>

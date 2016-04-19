@@ -54,6 +54,12 @@ else
 		$this->load->model('device_model');
 		$result = $this->device_model->get_data();
 		$data["result"] = $result;
+		$parameters= [];
+		foreach ($result as $row) {
+			$id = $row->id;
+			$parameters[$id] = $this->device_model->get_parameter_by_id($id);
+		}
+		$data["parameters"] = $parameters;
 		$this->load->view('device_page',$data);
 	}
 	public function add_device(){
