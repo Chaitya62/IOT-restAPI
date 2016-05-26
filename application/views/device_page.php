@@ -9,7 +9,9 @@
 
 
  ?>
-    
+   <span>
+      <?php// print_r($parameters); ?>
+   </span> 
 <div class="row">
 	<div class="col-md-2"><a href="add_device">+add Device</a></div>
 	<div class="col-md-8">
@@ -54,14 +56,33 @@
 							$delete_url = $base_url."/device/delete_device/{$id}";
 							$parameters_url = $base_url."/home/add_parameters/{$id}";
 							echo "<td> <a href=\"{$parameters_url}\">+Add parameters</a>
-                    <button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">View</button>
+                    <button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#myModal".$id."\">View</button>
                     </td>";
 
               // print_r($parameters);  
                    ?>
-         
-<div id="myModal" class="modal fade"  role="dialog" style="display:none;">
-  <div class="modal-dialog modal-lg">
+          
+
+
+            <?php 
+              
+							echo "<td><a href=\"{$edit_url}\">Edit</a> </td>";
+							echo "<td><a href=\"{$delete_url}\" onclick =\"return confirm('Are you sure?');\">Delete</a> </td>";
+							echo "</tr>";	
+				} ?>
+            </tbody>
+          </table>
+        <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+ <?php foreach ($result as $row) { 
+  $id = $row->id;
+
+  ?>
+  <div id="myModal<?php echo $id; ?>" class="modal fade"  role="dialog" style="display:none;  ">
+  <div class="modal-dialog modal-lg" style="background-color: #003333; width: 450px;">
     <!-- Modal content-->
     <div class="modal-content">
           <a class="close" data-dismiss="modal" aria-hidden="true">×</a>
@@ -79,10 +100,10 @@
                 <label for="inputName" class="col-md-4 control-label">Parameter Name </label>
                 
                  
-                <div class="col-md-8">
+                <div class="col-md-4">
                   <input type="name" class="form-control" name="parameter_name[]" id="inputName" placeholder="parameter name" value = "<?php echo $parameter->parameter_name;?>" >
                 </div>
-                 <div class="col-md-8">
+                 <div class="">
                   <input type="name" name="parameter_id[]" id="" placeholder="" value =<?php echo "$parameter->parameter_id";  ?> style="display:none;">
                
                 </div> 
@@ -92,7 +113,7 @@
             </div>
 
             </div>
-            <?php } ?>
+           <?php } ?> 
 
 
             
@@ -109,21 +130,8 @@
       </div>
     </div>
   </div>
-</div>  
-
-            <?php 
-              
-							echo "<td><a href=\"{$edit_url}\">Edit</a> </td>";
-							echo "<td><a href=\"{$delete_url}\" onclick =\"return confirm('Are you sure?');\">Delete</a> </td>";
-							echo "</tr>";	
-				} ?>
-            </tbody>
-          </table>
-        <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
-	</div>
-	<div class="col-md-2"></div>
 </div>
-
+  <?php } ?>
 
 
 <?php $this->load->view('layouts/footer'); ?>
