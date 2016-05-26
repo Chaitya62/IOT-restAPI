@@ -5,6 +5,11 @@
     display: none;
   }
 </style>
+
+
+
+ ?>
+    
 <div class="row">
 	<div class="col-md-2"><a href="add_device">+add Device</a></div>
 	<div class="col-md-8">
@@ -30,13 +35,18 @@
 
             <tbody>
             <?php foreach ($result as $row) {
-              
+               
 							echo "<tr>";
 							// echo "<td>".$row->id."</td>";
 							echo "<td>".$row->device_name."</td>";
 							echo "<td>".$row->device_id."</td>";
 							echo "<td>".$row->about_device."</td>";
 							$id = $row->id;
+              // foreach ($parameters[$id] as $parameter){
+              // print_r($parameter);
+              // echo "Darsh ";
+              //                     }
+              
 							// $hobbies = $row->hobbies;
 							// echo "<td>".$hobbies."</td>";
 							$base_url = base_url().'index.php';
@@ -45,7 +55,10 @@
 							$parameters_url = $base_url."/home/add_parameters/{$id}";
 							echo "<td> <a href=\"{$parameters_url}\">+Add parameters</a>
                     <button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">View</button>
-                    </td>"; 
+                    </td>";
+
+              // print_r($parameters);  
+                   ?>
          
 <div id="myModal" class="modal fade"  role="dialog" style="display:none;">
   <div class="modal-dialog modal-lg">
@@ -55,27 +68,36 @@
       <div class="modal-body">
         <form action="<?php echo base_url(); ?>index.php/device/update_parameter" method="post" class="form-horizontal">
         <?php 
-        echo "<h4>The parameters are:-</h4>";
+        echo "<h4>The parameters are:-</h4>";?>
 
-        
+        <?php  foreach ($parameters[$id] as $parameter) { ?>
             <div class="row">
           <div class="form-group is-empty">
+            
+                                    
+                  
                 <label for="inputName" class="col-md-4 control-label">Parameter Name </label>
-
+                
+                 
                 <div class="col-md-8">
-                  <input type="name" class="form-control" name="parameter_name[]" id="inputName" placeholder="parameter name" value ="<?php echo $parameter_name; ?>">
+                  <input type="name" class="form-control" name="parameter_name[]" id="inputName" placeholder="parameter name" value = "<?php echo $parameter->parameter_name;?>" >
                 </div>
                  <div class="col-md-8">
-                  <input type="name" name="parameter_id[]" id="" placeholder="" value ="<?php echo $parameter_id;  ?>" style="display:none">
-                </div>
+                  <input type="name" name="parameter_id[]" id="" placeholder="" value =<?php echo "$parameter->parameter_id";  ?> style="display:none;">
+               
+                </div> 
 
-              <span class="material-input"></span></div>
+
+              <span class="material-input"></span>
             </div>
+
+            </div>
+            <?php } ?>
 
 
             
 
-          <?php } ?>
+          
           <div class="row">
           <div class="form-group">
                 <div class="col-md-10 col-md-offset-2">

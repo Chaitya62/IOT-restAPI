@@ -45,7 +45,7 @@ class device_model extends CI_Model{
 	}
 
 	public function edit_parameter($id,$data){
-		$this->db->where(array('id' => $id));
+		$this->db->where(array('parameter_id' => $id));
 		$this->db->update('parameters',$data);
 
 

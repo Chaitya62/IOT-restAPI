@@ -58,10 +58,12 @@ class device extends CI_Controller{
 		$this->load->model('device_model');
 	$parameter_names = $this->input->post('parameter_name[]');
 	$parameter_ids = $this->input->post('parameter_id[]');
+	$count = 0;
 	foreach ($parameter_names as $parameter_name){
 		$id = $parameter_ids[$count];	
 		$data = array('parameter_name' => $parameter_name);
 		$this->device_model->edit_parameter($id,$data);
+		$count = $count + 1;
 	}
 	 redirect('user/device');
 	 }
