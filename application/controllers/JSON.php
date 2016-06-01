@@ -2,7 +2,7 @@
 class JSON extends CI_Controller {
 	/*example uri localhost/IOT/index.php/JSON/user_get/id/2/parameter_id/32/user_id/5/temperature/10 
 	  example output {"id":"2","parameter_id":"32","user_id":"5","temperature":"10"}
-
+		Darsh's Pull request
 	*/	
 	public  function user_get(){
 	$data1 = [];
