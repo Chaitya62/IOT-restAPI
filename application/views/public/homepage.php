@@ -70,7 +70,7 @@
 <div class="row">
     <div class="col-xs-4"></div>
     <div class="col-xs-4">
-        <div class="row">
+        <div class="row" style="transform: translate(0px, -30px);">
             <center>
             <div class="col-xs-6"><a href="signup" class="btn btn-raised btn-primary">Signup<div class="ripple-container"></div></a></div>
             <div class="col-xs-6"><a href="login" class="btn btn-raised btn-primary">Log in<div class="ripple-container"></div></a></div>
