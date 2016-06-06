@@ -7,13 +7,17 @@ class device extends CI_Controller{
 	$device_id = $this->input->post('device_id');
 	$about_device = $this->input->post('about_device');
 	$key = $this->session->userdata('id'); //later stages will take users key
+	$passcode = rand($key,$key+10000);
 	$data = array(
 			'device_name' => $device_name,
 			'device_id'  =>  $device_id,
 			'about_device'      =>  $about_device,
-			'key' => $key
+			'key' => $key,
+			'passcode' =>  $passcode
+
 			);
 	$this->device_model->add_device($data);
+	$this->session->set_userdata('passcode', $passcode);
 	redirect('user/device');
 
 	}
