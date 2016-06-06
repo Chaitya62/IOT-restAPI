@@ -23,6 +23,7 @@
               <th>Device Name</th>
               <th>Device ID</th>
               <th>About Device</th>
+              <th>passcode</th>
               <th>Parameters</th>
               <th>Edit</th>
               <th>Delete</th>
@@ -44,6 +45,7 @@
 							echo "<td>".$row->device_id."</td>";
 							echo "<td>".$row->about_device."</td>";
 							$id = $row->id;
+              echo "<td>".$passcode[$id]."</td>";
               // foreach ($parameters[$id] as $parameter){
               // print_r($parameter);
               // echo "Darsh ";

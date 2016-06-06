@@ -55,11 +55,14 @@ else
 		$result = $this->device_model->get_data();
 		$data["result"] = $result;
 		$parameters= [];
+		$passcode = [];
 		foreach ($result as $row) {
 			$id = $row->id;
 			$parameters[$id] = $this->device_model->get_parameter_by_id($id);
+			$passcode[$id]  = $row->passcode;
 		}
 		$data["parameters"] = $parameters;
+		$data["passcode"] = $passcode;
 		$this->load->view('device_page',$data);
 	}
 	public function add_device(){
