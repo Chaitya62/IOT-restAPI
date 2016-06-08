@@ -10,7 +10,7 @@
               <legend style="color:#00ffff">Log in</legend>
   
 
-              <div class="form-group is-empty">
+              <div class="form-group ">
                 <label for="inputEmail" class="col-md-2 control-label">Email</label>
 
                 <div class="col-md-10">
@@ -18,7 +18,7 @@
                 </div>
                  <span class="material-input"></span></div>
 
-              <div class="form-group is-empty">
+              <div class="form-group">
                 <label for="inputPassword"  class="col-md-2 control-label">Password</label>
 
                 <div class="col-md-10">

@@ -7,18 +7,7 @@
 require APPPATH . '/libraries/REST_Controller.php';
 class JSON extends REST_Controller{
 	
-public function authorize($auth){
-		$this->load->model('device_model');
-		$result = $this->device_model->get_data_by_id($auth['device_id']);
-		foreach ($result as $row) {
-			if($row->key == $auth['user_id'] && $row->passcode == $auth['passcode']){
-				return True;
 
-			}
-			else{return False;}
-			
-		}
-	}
 public function cat_get() {
 	//$dir = $this->uri->segment(3);	
 	//if ($handle = opendir('../owncloud/media/'.$dir.'/')) {
@@ -46,6 +35,18 @@ public function cat_get() {
 	 		
 		 		
 	}
+	public function authorize($auth){
+		$this->load->model('device_model');
+		$result = $this->device_model->get_data_by_id($auth['device_id']);
+		foreach ($result as $row) {
+			if($row->key == $auth['user_id'] && $row->passcode == $auth['passcode']){
+				return True;
+
+			}
+			else{return False;}
+			
+		}
+	}
 
 	public function add_values($url)
 	{
@@ -55,17 +56,23 @@ public function cat_get() {
 			$para[$parameter->parameter_name] = $parameter->parameter_id; 
 		}
 
+
 		foreach ($para as $name => $id) {
-			try{
-			$data=[];
+			$data= [
+			'device_id' => NULL,
+			'parameter_id' => NULL,
+			'value' => NULL
+
+		];
+		//try{
 
 			$data['device_id'] = $url['device_id'];
-			$data['value'] = $url[$name];
+			try{ $data['value'] = $url[$name];}
 			$data['parameter_id'] = $id;
 			$this->value_model->add_value($data);
-		}
-		catch(exception $e){
-			echo $e;
+		
+		//catch(exception $e){
+		//	echo $e;
 		// 	$data=[];
 
 		// 	$data['device_id'] = $url['device_id'];
