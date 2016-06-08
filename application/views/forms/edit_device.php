@@ -168,5 +168,29 @@
     <div class="col-md-4"></div>
   </div>
   </div>
+   <script>
+  $(function () {
+    $.material.init();
+    $(".shor").noUiSlider({
+      start: 40,
+      connect: "lower",
+      range: {
+        min: 0,
+        max: 100
+      }
+    });
+
+    $(".svert").noUiSlider({
+      orientation: "vertical",
+      start: 40,
+      connect: "lower",
+      range: {
+        min: 0,
+        max: 100
+      }
+    });
+  });
+</script>
+
               <!-- <div class="form-group" style="margin-top: 0;"> -->
 <?php $this->load->view('layouts/footer'); ?>
