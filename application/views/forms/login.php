@@ -1,11 +1,12 @@
 <?php $this->load->view('layouts/header'); ?>
+<?php $this->load->view('layouts/navbar') ?>
 <?php 
   $base_url = base_url().'index.php';
  ?>
-<div class="container-fluid" style="padding:60px;"> <div class="row">
+<div class="container-fluid" style="padding:65px;"> <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4"><div class="well bs-component">
-          <form class="form-horizontal" method="post" action = "<?php echo $base_url; ?>/user/Login_request">
+          <form class="form-horizontal" method="post"  action = "<?php echo $base_url; ?>/user/Login_request">
             <fieldset>
               <legend style="color:#00ffff">Log in</legend>
   
@@ -170,6 +171,8 @@
     });
   });
 </script>
+<?php $this->load->view('layouts/footer2'); ?>
+
 
               <!-- <div class="form-group" style="margin-top: 0;"> -->
 <?php $this->load->view('layouts/footer'); ?>

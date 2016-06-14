@@ -1,4 +1,5 @@
 <?php $this->load->view('layouts/header'); ?>
+<?php $this->load->view('layouts/navbar'); ?>
 <?php 
   $base_url = base_url().'index.php';
  ?>
@@ -185,6 +186,6 @@
     });
   });
 </script>
-
+<?php $this->load->view('layouts/footer2'); ?>
               <!-- <div class="form-group" style="margin-top: 0;"> -->
 <?php $this->load->view('layouts/footer'); ?>
