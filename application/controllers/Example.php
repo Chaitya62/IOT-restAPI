@@ -94,16 +94,6 @@ class Example extends REST_Controller {
             $data['value'] = $url[$name];
             $data['parameter_id'] = $id;
             $this->value_model->add_value($data);
-        
-        //catch(exception $e){
-        //  echo $e;
-        //  $data=[];
-
-        //  $data['device_id'] = $url['device_id'];
-        //  $data['value'] = 0;
-        //  $data['parameter_id'] = $id;
-        //  $this->value_model->add_value($data);   
-        // }
         }
     }
 

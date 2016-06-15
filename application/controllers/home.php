@@ -1,5 +1,8 @@
 <?php 
 class Home extends CI_Controller{
+	public function cards(){
+		$this->load->view('public/device_cards');
+	}
 
 	public function view(){
 		$this->load->view('public/homepage');
