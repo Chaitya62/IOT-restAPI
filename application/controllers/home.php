@@ -1,7 +1,14 @@
 <?php 
 class Home extends CI_Controller{
 	public function cards(){
-		$this->load->view('public/device_cards');
+		$this->load->model('device_model');
+		$data["devices"] = $this->device_model->get_data();
+		// foreach ($data["devices"] as $key) {
+		// 	print_r($key->device_name);
+		// 	echo "<br>";
+		// }
+		// print_r($data["devices"]);
+		$this->load->view('public/device_cards',$data);
 	}
 
 	public function view(){
