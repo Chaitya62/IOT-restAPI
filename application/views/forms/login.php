@@ -1,5 +1,5 @@
 <?php $this->load->view('layouts/header'); ?>
-<?php $this->load->view('layouts/navbar') ?>
+
 <?php 
   $base_url = base_url().'index.php';
  ?>

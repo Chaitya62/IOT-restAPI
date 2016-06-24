@@ -88,10 +88,17 @@
 			<div class="card-title">
 				<h4><?php echo $device->device_name;?></h4>
 			</div>
+
 			<div class="card-text">
-				<p class="card-text">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae nobis aliquam dolorum cum pariatur quae 
-				</p>
+			<p class="card-text">	
+			<ul>
+			<?php $parameters = 'parameter'.$device->id; 
+			foreach ($$parameters as $parameter) {?>
+				<li><?php echo $parameter->parameter_name; ?></li>
+			
+		
+			<?php }?>
+			</ul>
 			</div>
 			<div class="card-footer">
 				 <h6> Last updated on <i class="fa fa-clock-o"></i>05/10/2015.</h6>
