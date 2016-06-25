@@ -2,12 +2,27 @@
 class Home extends CI_Controller{
 	public function cards(){
 		$this->load->model('device_model');
+		$this->load->model('value_model');
 		// $data["parameters"]= $this->device_model->
 		$data["devices"] = $this->device_model->get_data();
 		foreach($data["devices"] as $device) {
 			$data ['parameter'.$device->id] = $this->device_model->get_parameter_by_id($device->id);
+
 			//print_r($data ['parameter'.$device->id]);
 		}
+		$values = $this->value_model->get_last_values(); 
+        //$get = $this->uri->segment(1);
+        // foreach ($values as $values_array) {
+        // 		foreach ($values_array as $value) {
+        // 			array_push($data['parameter'.$value->device_id],array('parameter_value'=>$value->value)); 
+        // 	// 		echo "Parameter id:". $key->parameter_id;
+        // 	// 		echo "<br>";
+        // 	// 		echo "Value:" . $key->value;
+        // 	// echo "<br>";	
+        // 		}
+        		
+        // }
+        
 		// foreach ($data["devices"] as $key) {
 		// 	print_r($key->device_name);
 		// 	echo "<br>";
