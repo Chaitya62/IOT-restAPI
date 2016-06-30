@@ -91,17 +91,41 @@
 
 			<div class="card-text">
 			<p class="card-text">	
-			<ul>
+			<div class="bs-component">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Parameter Name</th>
+						<th>Parameter Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					
+				
 			<?php $parameters = 'parameter'.$device->id; 
 			foreach ($$parameters as $parameter) {?>
-				<li><?php echo $parameter->parameter_name; ?></li>
-			
+				<tr>
+				<td><?php echo $parameter->parameter_name; ?></td>
+				<td>
+				<?php  if(isset($values[$parameter->parameter_id])){
+						echo $values[$parameter->parameter_id];
+				}
+
+				else { echo "Null" ;}
+
+
+				?> </td> 
+
+				</tr>
 		
 			<?php }?>
-			</ul>
+			</tbody>
+			</table>
+			</div>
 			</div>
 			<div class="card-footer">
-				 <h6> Last updated on <i class="fa fa-clock-o"></i>05/10/2015.</h6>
+				 <h6> Last updated on <i class="fa fa-clock-o"></i><?php echo $values['timestamp']; ?></h6>
 			</div>							
 
 				

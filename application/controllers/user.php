@@ -2,7 +2,7 @@
 class user extends CI_Controller{
 
 	public function login(){
-		echo 'Hurah! it worked';
+		//echo 'Hurah! it worked';
 		$name = $this->input->post('name');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
@@ -69,7 +69,21 @@ else
 		$this->load->view('forms/add_device');
 	}
 
+	public function reset_password(){
+		$this->load->model('user_model');
+		$data  =  $this->user_model-> get_data_by_email('DarshSelarka14@gmail.com');
+		foreach ($data as $row) {
+			$id = $row->id;
+		}
+		$new_password = $this->input->post('password');
+		$data = array(
+						'password'  =>  $new_password // new variable new password
+			);
+		$this->user_model->update_password($id,$data);
+
+	}
+
+
 }
 
 
- ?>

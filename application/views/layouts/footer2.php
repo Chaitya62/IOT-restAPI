@@ -1,5 +1,12 @@
 <style>
-	svg{
+	footer{
+     position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+  }
+  svg{
+
 		border:1px solid #00ffff;
 		border-radius: 3px;
 	}

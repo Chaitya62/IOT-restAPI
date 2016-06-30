@@ -15,10 +15,18 @@ class value_model extends CI_Model{
 			foreach ($parameters as $parameter) {
 				$parameter_id =  $parameter->parameter_id;
 				$this->db->where(array('parameter_id' => $parameter_id));
+				$this->db->order_by('time','DESC');   //So that the lastest value is on the top
+				$this->db->limit(1);  //Only returns one value per parameter
 				$result[$parameter_id] = $this->db->get('parameter_values')->result();
 			}
 		}
 		return $result;
+	}
+
+	public function get_values_by_parameter_id($parameter_id){
+		$this->db->where(array('parameter_id'=>$parameter_id));
+		$parameter_values = $this->db->get('parameter_values');
+		return $parameter_values->result();
 	}
 
 

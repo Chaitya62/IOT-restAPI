@@ -12,6 +12,16 @@ class user_model extends CI_Model{
 		$this->db->where(array('email' => $email));
 		$data =  $this->db->get('users');
 		return $data->result();
+
+	}
+	public function update_password($user_id,$data){
+
+		$this->db->where(array('id'=> $user_id));
+		$this->db->update($data);
+
+
+		
+
 	}
 } 
 
