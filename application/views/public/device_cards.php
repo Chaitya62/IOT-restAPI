@@ -79,7 +79,7 @@
 	}
 
 </style>
-	
+	<!-- Card Start-->
 	<div class="card-container">
 	<div class="row row-centered">
 	<?php foreach ($devices as $device) {?>
@@ -90,9 +90,30 @@
 			</div>
 
 			<div class="card-text">
-			<p class="card-text">	
+			<!--Carousel Start -->
+			<?php $p = 'carousel_count'.$device->id;
+		 	$q = $$p; 
+		 	$count = 0; 
+		 	
+		 	?>
+		 	<div class="container col-xs-11 col-md-12 col-lg-12">
+  <br>
+  <div id="myCarousel<?php echo $device->id; ?>" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+	<?php while($q>0){?>
+      <li data-target="#myCarousel<?php echo $device->id; ?>" data-slide-to="<?php echo $count; ?>" class="active"></li>
+      <?php $count++; $q--; } ?>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <?php while($$p>0){ ?>
+      <div class="item active">
+				
+		
 			<div class="bs-component">
-			<table class="table">
+			<table class="table col-xs-5 col-md-8 col-lg-8">
 				<thead>
 					<tr>
 						<th>Parameter Name</th>
@@ -104,13 +125,14 @@
 					
 				
 			<?php $parameters = 'parameter'.$device->id; 
+
 			// echo "<pre>";
 			// print_r($$parameters);
 			// echo "</pre>";
-			$count = 0;
-			$loop_count = 0;
-			while($count<=3 && $count<${$parameters}['count']){
 			
+			$loop_count = 0;
+			while($loop_count<=3){
+				if($count>=${$parameters}['count']){break;}
 			?>
 				<tr>
 				<td><?php if(isset(${$parameters}[$count])){ echo ${$parameters}[$count]->parameter_name;} ?></td>
@@ -120,7 +142,9 @@
 				 
 					
 				  else echo "Null" ;
+				  $loop_count++;
 				  $count++;
+
 
 				?> </td> 
 
@@ -130,6 +154,22 @@
 			</tbody>
 			</table>
 			</div>
+			  </div>
+
+   	<?php $$p--; } ?>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel<?php echo $device->id; ?>" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel<?php echo $device->id; ?>" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
 			</div>
 			<div class="card-footer">
 				 <h6> Last updated on <i class="fa fa-clock-o"></i><?php echo $values['timestamp']; ?></h6>
