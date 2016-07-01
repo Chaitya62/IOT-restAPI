@@ -104,22 +104,29 @@
 					
 				
 			<?php $parameters = 'parameter'.$device->id; 
-			foreach ($$parameters as $parameter) {?>
+			// echo "<pre>";
+			// print_r($$parameters);
+			// echo "</pre>";
+			$count = 0;
+			$loop_count = 0;
+			while($count<=3 && $count<${$parameters}['count']){
+			
+			?>
 				<tr>
-				<td><?php echo $parameter->parameter_name; ?></td>
+				<td><?php if(isset(${$parameters}[$count])){ echo ${$parameters}[$count]->parameter_name;} ?></td>
 				<td>
-				<?php  if(isset($values[$parameter->parameter_id])){
-						echo $values[$parameter->parameter_id];
-				}
-
-				else { echo "Null" ;}
-
+				<?php  if(isset($values[${$parameters}[$count]->parameter_id])){
+						echo $values[${$parameters}[$count]->parameter_id];}
+				 
+					
+				  else echo "Null" ;
+				  $count++;
 
 				?> </td> 
 
 				</tr>
 		
-			<?php }?>
+			<?php } ?>
 			</tbody>
 			</table>
 			</div>

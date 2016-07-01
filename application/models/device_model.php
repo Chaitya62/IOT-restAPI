@@ -43,6 +43,18 @@ class device_model extends CI_Model{
 		$data =  $this->db->get('parameters');
 		return $data->result();
 	}
+	public function get_parameter_count_by_id($device_id){
+		$this->db->where(array('device_id' =>  $device_id));
+		$data =  $this->db->get('parameters');
+		return $data->num_rows();
+		
+	}
+	public function get_parameter_name_by_id($device_id){
+		$this->db->select('parameter_name');
+		$this->db->where(array('device_id' =>  $device_id));
+		$data =  $this->db->get('parameters');
+		return $data->result();
+	}
 
 	public function edit_parameter($id,$data){
 		$this->db->where(array('parameter_id' => $id));
