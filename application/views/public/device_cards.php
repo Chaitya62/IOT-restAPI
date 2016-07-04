@@ -109,7 +109,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <?php while($$p>0){ ?>
-      <div class="item active">
+      <div class="item   <?php if($count==0){echo 'active'; } ?> ">
 				
 		
 			<div class="bs-component">
@@ -131,7 +131,7 @@
 			// echo "</pre>";
 			
 			$loop_count = 0;
-			while($loop_count<=3){
+			while($loop_count<3){
 				if($count>=${$parameters}['count']){break;}
 			?>
 				<tr>
@@ -140,8 +140,8 @@
 				<?php  if(isset($values[${$parameters}[$count]->parameter_id])){
 						echo $values[${$parameters}[$count]->parameter_id];}
 				 
-					
-				  else echo "Null {$count}" ;
+			
+				  else echo "Null" ;
 				  $loop_count++;
 				  $count++;
 
@@ -155,7 +155,7 @@
 			</table>
 			</div>
 			  </div>
-
+		
    	<?php $$p--; } ?>
     </div>
 
@@ -187,7 +187,6 @@
 			</div>
 		
 	</div>
-
 
 
 <?php $this->load->view("layouts/footer2"); ?>
