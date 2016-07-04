@@ -107,7 +107,7 @@ class Home extends CI_Controller{
 		print_r($data);
 		echo "</pre>";
 		
-		//$this->load->view('public/carousel_test',$data);
+		$this->load->view('public/carousel_test',$data);
 	}
 	// public function test2(){
 	// 	$this->load->model('device_model');

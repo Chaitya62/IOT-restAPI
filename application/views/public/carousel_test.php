@@ -1,7 +1,4 @@
-<?php $this->load->view("layouts/header"); ?>
-<?php $this->load->view("layouts/navbar") ?>
- 
- 
+<?php $this->load->view('layouts/header'); ?>
 	<?php foreach ($devices as $device) { 
  	$p = 'carousel_count'.$device->id;
  	$q = $$p; 
@@ -44,5 +41,4 @@
 <br>
 <br>
 <?php  } ?>
-<?php $this->load->view("layouts/footer2"); ?>
-<?php $this->load->view("layouts/footer"); ?>
+<?php $this->load->view('layouts/footer'); ?>

@@ -94,7 +94,7 @@
 			<?php $p = 'carousel_count'.$device->id;
 		 	$q = $$p; 
 		 	$count = 0; 
-		 	
+		 	$list_count =0;
 		 	?>
 		 	<div class="container col-xs-11 col-md-12 col-lg-12">
   <br>
@@ -102,8 +102,8 @@
     <!-- Indicators -->
     <ol class="carousel-indicators">
 	<?php while($q>0){?>
-      <li data-target="#myCarousel<?php echo $device->id; ?>" data-slide-to="<?php echo $count; ?>" class="active"></li>
-      <?php $count++; $q--; } ?>
+      <li data-target="#myCarousel<?php echo $device->id; ?>" data-slide-to="<?php echo $list_count; ?>" class="active"></li>
+      <?php  $q--; $list_count++; } ?>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -141,7 +141,7 @@
 						echo $values[${$parameters}[$count]->parameter_id];}
 				 
 					
-				  else echo "Null" ;
+				  else echo "Null {$count}" ;
 				  $loop_count++;
 				  $count++;
 
